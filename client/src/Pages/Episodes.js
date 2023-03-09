@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react';
-// Styling imports
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '.././App.css';
 import { Card, ListGroup, Button } from 'react-bootstrap';
-
 import SpotifyWebApi from 'spotify-web-api-node';
+import { Link } from 'react-router-dom';
 
 const spotifyApi = new SpotifyWebApi({
   clientId: 'f3f195c8976647169182690d62827f5a',
@@ -66,7 +65,9 @@ function Episodes() {
                   <ListGroup variant="flush">
                     <ListGroup.Item>{episode.description}</ListGroup.Item>
                   </ListGroup>
-                  <Button variant="primary" href={episode.external_urls.spotify} target="_blank">Play Episode</Button>
+                  <Link to={`/episodes/${episode.id}`}>
+                    <Button variant="primary">Play Episode</Button>
+                  </Link>
                 </Card.Body>
               </Card>
             </div>

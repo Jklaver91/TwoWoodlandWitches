@@ -2,7 +2,7 @@ import logo from './logo.svg';
 
 //React imports
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, } from "react-router-dom";
 
 // styling
 import Container from 'react-bootstrap/Container';
@@ -12,11 +12,11 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 import './App.css';
 
-import About from './Pages/About';
 import Home from './Pages/Home';
-import FindUs from './Pages/FindUs';
+import About from './Pages/About';
 import Episodes from './Pages/Episodes';
-import Vendor from './Pages/Vendor';
+import EpisodeDetails from './Pages/EpisodeDetails';
+import FindUs from './Pages/FindUs';
 
 function App() {
   return (
@@ -36,7 +36,6 @@ function App() {
             {/* links to pages */}
             <Nav.Link href="/">Home</Nav.Link>
             <Nav.Link href="/episodes">Episodes</Nav.Link>
-            <Nav.Link href="/vendor">Vendor Info</Nav.Link>
             <Nav.Link href="/about">About Us</Nav.Link>
             <Nav.Link href="/findus">Find Us!</Nav.Link>
           </Nav>
@@ -46,12 +45,11 @@ function App() {
     
     {/* routes */}
     <Router>
-            <Routes>
-              <Route exact path="/" element={<Home />} />
-              <Route path="/episodes" element={<Episodes />} />
-              <Route exact path="/about" element={<About />} />
-              <Route exact path="/findus" element={<FindUs />} />
-            </Routes>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/episodes" element={<Episodes />} />
+        <Route path="/episodes/:id" element={<EpisodeDetails />} />
+      </Routes>
     </Router>
     </div>
   );
